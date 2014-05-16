@@ -20,7 +20,8 @@
 <div class="container">
     <h1>Últimos candidatos</h1>
 
-    <h2>Backend developers</h2>
+    @foreach ($latest_candidates as $category)
+    <h2>{{ $category->name }}</h2>
 
     <table class="table table-striped">
         <thead>
@@ -32,23 +33,26 @@
         </tr>
         </thead>
         <tbody>
+        @foreach ($category->candidates as $candidate)
         <tr>
-            <td>Duilio Palacios</td>
-            <td>Backend developer</td>
-            <td>I'm a web developer senior, I love rainbow unicorns.</td>
+            <td>{{ $candidate->user->full_name }}</td>
+            <td>{{ $candidate->job_type_title }}</td>
+            <td>{{ $candidate->description }}</td>
             <td width="50">
-                <a href="" class="btn btn-info">
+                <a href="{{ route('candidate', [$candidate->slug, $candidate->id]) }}" class="btn btn-info">
                     Ver
                 </a>
             </td>
         </tr>
+        @endforeach
         </tbody>
     </table>
     <p>
-        <a href="">
-            Ver todos en backend developer
+        <a href="{{ route('category', [$category->slug, $category->id]) }}">
+            Ver todos en {{ $category->name }}
         </a>
     </p>
+    @endforeach
 
 </div> <!-- /container -->
 

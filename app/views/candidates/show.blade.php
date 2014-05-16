@@ -4,27 +4,27 @@
 
 <div class="container">
 
-    <h1>Duilio Palacios</h1>
+    <h1>{{ $candidate->user->full_name }}</h1>
 
     <p>
         Categoría:
-        <a href="">
-            Backend developers
+        <a href="{{ route('category', [$candidate->category->slug, $candidate->category->id]) }}">
+            {{ $candidate->category->name }}
         </a>
     </p>
 
-    <p>Tipo de trabajo: Freelance</p>
+    <p>Tipo de trabajo: {{ $candidate->job_type_title }}</p>
 
     <p>
         Website:
-        <a href="">
-           http://www.mejorando.la
+        <a href="{{ $candidate->website_url }}">
+           {{ $candidate->website_url }}
         </a>
     </p>
 
     <h4>Descripción</h4>
 
-    <p>I'm a web developer senior, I love rainbow unicorns.</p>
+    <p>{{ $candidate->description }}</p>
 
 </div> <!-- /container -->
 
