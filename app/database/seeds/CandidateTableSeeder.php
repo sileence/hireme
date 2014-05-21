@@ -18,8 +18,8 @@ class CandidateTableSeeder extends Seeder {
             $user = User::create([
                'full_name' => $fullName,
                'email'     => $faker->email,
-               'password'  => \Hash::make(123456),
-               'type'     => 'candidate'
+               'password'  => '123456',
+               'type'      => 'candidate'
             ]);
 
 			Candidate::create([

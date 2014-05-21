@@ -13,7 +13,11 @@
                 https://mejorando.la/cursos/php-laravel
             </a>
         </p>
-        <p><a class="btn btn-primary btn-lg" role="button">Postúlate &raquo;</a></p>
+        <p>
+            <a href="{{ route('sign_up') }}" class="btn btn-primary btn-lg" role="button">
+                Postúlate &raquo;
+            </a>
+        </p>
     </div>
 </div>
 
