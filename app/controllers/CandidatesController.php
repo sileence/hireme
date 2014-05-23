@@ -19,12 +19,16 @@ class CandidatesController extends BaseController {
     {
         $category = $this->categoryRepo->find($id);
 
+        $this->notFoundUnless($category);
+
         return View::make('candidates/category', compact('category'));
     }
 
     public function show($slug, $id)
     {
         $candidate = $this->candidateRepo->find($id);
+
+        $this->notFoundUnless($candidate);
 
         return View::make('candidates/show', compact('candidate'));
     }

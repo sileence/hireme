@@ -11,4 +11,9 @@ class CategoryRepo extends BaseRepo {
         return new Category;
     }
 
+    public function getList()
+    {
+        return Category::lists('name', 'id');
+    }
+
 } 

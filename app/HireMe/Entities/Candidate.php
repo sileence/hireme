@@ -1,7 +1,8 @@
 <?php namespace HireMe\Entities;
 
 class Candidate extends \Eloquent {
-	protected $fillable = [];
+	protected $fillable = ['website_url', 'description',
+                           'job_type', 'category_id', 'available'];
     protected $perPage = 3;
 
     public function user()

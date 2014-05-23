@@ -13,7 +13,6 @@ abstract class BaseManager {
 
     protected $entity;
     protected $data;
-    protected $errors;
 
     public function __construct($entity, $data)
     {
@@ -29,28 +28,25 @@ abstract class BaseManager {
 
         $validation = \Validator::make($this->data, $rules);
 
-        $isValid = $validation->passes();
-        $this->errors = $validation->messages();
+        if ($validation->fails())
+        {
+            throw new ValidationException('Validation failed', $validation->messages());
+        }
+    }
 
-        return $isValid;
+    public function prepareData($data)
+    {
+        return $data;
     }
 
     public function save()
     {
-        if ( ! $this->isValid())
-        {
-            return false;
-        }
+        $this->isValid();
 
-        $this->entity->fill($this->data);
+        $this->entity->fill($this->prepareData($this->data));
         $this->entity->save();
 
         return true;
-    }
-
-    public function getErrors()
-    {
-        return $this->errors;
     }
 
 } 
