@@ -16,4 +16,9 @@ class CategoryRepo extends BaseRepo {
         return Category::lists('name', 'id');
     }
 
+    public function find($id)
+    {
+        return $this->model->find($id);
+    }
+
 } 

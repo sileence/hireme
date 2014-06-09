@@ -7,11 +7,12 @@
     <div class="container">
         <h1>HireMe</h1>
         <p>
-            Proyecto que estamos construyendo con Laravel para el curso profesional
-            de PHP y Laravel de Mejorando.la:
+            Proyecto que construimos con Laravel para #MejorandoPHP
             <a href="https://mejorando.la/cursos/php-laravel">
                 https://mejorando.la/cursos/php-laravel
             </a>
+            <br>
+            Sígueme en Twitter: <strong>@sileence</strong>
         </p>
         @if (Auth::guest())
         <p>
